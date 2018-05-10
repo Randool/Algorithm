@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1512053150 source:g:\desktop\cpp(codes)\acm\algorithm_structure\graph theory\dijkstra\main.cpp
+	<iostream>
+	<queue>
+	<cstdio>
+	<cstring>
+	<vector>
+

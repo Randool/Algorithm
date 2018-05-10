@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1513148509 source:g:\desktop\cpp(codes)\acm\algorithm_structure\graph theory\lab\main.cpp
+	<cstdio>
+	<queue>
+	<cstring>
+

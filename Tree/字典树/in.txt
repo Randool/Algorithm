@@ -1,0 +1,8 @@
+binary
+tree
+and
+heap
+is
+beautiful
+
+binarytreeisbeautiful

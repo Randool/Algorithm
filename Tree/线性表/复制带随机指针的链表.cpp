@@ -1,0 +1,32 @@
+//http://www.lintcode.com/zh-cn/problem/copy-list-with-random-pointer/
+#include <bits/stdc++.h>
+using namespace std;
+
+//Definition for singly-linked list with a random pointer.
+struct RandomListNode {
+    int label;
+    RandomListNode *next, *random;
+    RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+};
+
+class Solution {
+private:
+    RandmListNode *copyed;
+
+public:
+    /**
+     * @param head: The head of linked list with a random pointer.
+     * @return: A new head of a deep copy of the list.
+     */
+    RandomListNode *copyRandomList(RandomListNode *head) {
+        if (!head) return copyed;
+
+
+        return copyed;
+    }
+};
+
+int main() {
+    Solution sol;
+    return 0;
+}
