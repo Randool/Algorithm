@@ -13,15 +13,16 @@ struct Edge{
 	LL w;
 } edges[MAXM];
 
-int Find(int n) { return (P[n] == n) ? n : P[n] = Find(P[n]); }
+int Find(int n) {
+    return (P[n] == n) ? n : P[n] = Find(P[n]);
+}
 
 void __init__(int n) { for (int i = 1; i <= n; ++i) P[i] = i; }
 
 bool cmp1(const Edge &a, const Edge &b) { return a.w < b.w; }
 bool cmp2(const Edge &a, const Edge &b) { return a.w > b.w; }
 
-int main()
-{
+int main() {
     freopen("in.txt", "r", stdin);
 
     scanf("%d%d", &n, &m);

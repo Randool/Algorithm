@@ -1,50 +1,45 @@
-#include<iostream>
-#include<cstdio>
-#include<string>
-#include<cstring>
-using namespace std ;
+#include <cstdio>
+#include <cstring>
 
-void LCSLength( int m , int n ,char *x , char *y , int ** c , int ** b ){
-	int i , j ;
-	for( i = 1 ; i <= m ; i ++ ) c[i][0] = 0 ;
-	for( i = 1 ; i <= n ; i ++ ) c[0][i] = 0 ;
+using namespace std;
 
-	for( i = 1 ; i <= m ; i ++ ) {
-		for( j = 1 ; j <= n ; j ++ ){
-			if( x[i] == y[j] ){
-				c[i][j] = c[i-1][j-1] + 1 ;
-				b[i][j] = 1 ;
-			}
-			else if( c[i-1][j] >= c[i][j-1] ){
-				c[i][j] = c[i-1][j] ;
-				b[i][j] = 2 ;
-			}
-			else{
-				c[i][j] = c[i][j-1] ;
-				b[i][j] = 3;
-			}
-		}
-	}
-}
-void LCS( int i , int j , char *x , int ** b ){
-	if( i == 0 || j == 0 )return ;
-	if( b[i][j] == 1 ){
-		LCS(i-1 , j-1 , x , b );
-		cout << x[i] ;
-	}
-	else if (b[i][j] ==2 )LCS(i-1,j,x,b) ;
-	else LCS(i , j-1 , x , b ) ;
+#define MAXN 5050
+
+int p[MAXN];
+int s[MAXN];
+int l[MAXN];
+int b[MAXN];
+
+int length(int i) {
+    int k = 1;
+    i >>= 1;
+    while (i > 0) {
+        i >>= 1;
+        ++k;
+    }
+    return k;
 }
 
-int main(){
-	char a[1000],b[1000];
-	int **c , **d;
-	while(scanf("%s%s", &a, &b) != EOF){
-		int m = strlen(a);
-		int n = strlen(b);
-		LCSLength(m , n ,a , b , c , d );
-		LCS(m , n , a , d ) ;
-		cout << endl;
-	}
-	return 0 ;
+void Compress(int n, int p[], int s[], int l[], int b[]) {
+    const int maxL = 256, header = 11;
+    for (int i = 0; i < n; ++i) {
+        b[i] = length(p[i]);
+        int bmax = b[i];
+        s[i] = s[i-1] + bmax;
+        l[i] = 1;
+        for (int j = 2; j <= i && j <= maxL; ++j) {
+            bmax = max(bmax, b[i-j+1]);
+            if (s[i] > s[i-1] + j*bmax) {
+                s[i] = s[i-j] + j*bmax;
+                l[i] = j;
+            }
+        }
+        s[i] += header;
+    }
+}
+
+int main() {
+    int n;
+
+    return 0;
 }

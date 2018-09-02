@@ -14,7 +14,7 @@ int depose(int n, const vector<int> &vec) {
     for (int i = 0; i < n; ++i) pq.push(0);
     for (int i = 0; i < vec.size(); ++i) {
         int _min = pq.top();
-        shown(_min);
+        //shown(_min);
         result += _min;
         pq.pop();
         pq.push(_min + vec[i]);
