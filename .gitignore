@@ -2,6 +2,10 @@
 *.rar
 *.zip
 *.pdf
+*.layout
+
+# lab²»ÉÏ´«
+lab/
 
 # Compiled Object files
 *.slo
