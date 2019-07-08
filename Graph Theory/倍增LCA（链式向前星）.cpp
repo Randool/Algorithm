@@ -8,7 +8,9 @@ int fa[MAXN][20];
 int lg[MAXN];
 
 int head[MAXN];
-struct node { int to, next; } e[MAXN << 1];
+struct node {
+    int to, next;
+} e[MAXN << 1];
 int total;
 void add_edge(int x, int y) {
     e[++total].to = y;
